@@ -1,0 +1,10 @@
+import {Router} from 'express';
+import {featureRateLimit} from '../../middleware/feature-rate-limit.js';
+import {validateTopic,validateReportId} from './validation/research.validation.js';
+import {listReports,getReport,startResearch,deleteReport} from './controller/research.controller.js';
+const router=Router();
+router.get('/',listReports);
+router.post('/',featureRateLimit('research',5,60*60*1000),validateTopic,startResearch);
+router.get('/:id',validateReportId,getReport);
+router.delete('/:id',validateReportId,deleteReport);
+export default router;

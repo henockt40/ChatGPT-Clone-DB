@@ -1,0 +1,10 @@
+import {Router} from 'express';
+import {featureRateLimit} from '../../middleware/feature-rate-limit.js';
+import {validateImagePrompt,validateImageId} from './validation/images.validation.js';
+import {listImages,createImage,downloadImage,deleteImage} from './controller/images.controller.js';
+const router=Router();
+router.get('/',listImages);
+router.post('/',featureRateLimit('image',8),validateImagePrompt,createImage);
+router.get('/:id/file',validateImageId,downloadImage);
+router.delete('/:id',validateImageId,deleteImage);
+export default router;

@@ -1,0 +1,34 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "chatgpt-clone-2026-chatgpt-clone-20.e.aivencloud.com",
+      "port": 24593,
+      "driver": "MySQL",
+      "database": "chatgpt_clone_20",
+      "username": "avnadmin",
+      "connectionTimeout": 30,
+      "name": "chatgpt-aiven"
+    },
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "chatgpt-clone-2026-chatgpt-clone-20.e.aivencloud.com",
+      "port": 24593,
+      "driver": "MySQL",
+      "database": "defaultdb",
+      "username": "avnadmin",
+      "name": "chatgpt",
+      "connectionTimeout": 30
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { limitAuthAttempts } from '../../middleware/auth-rate-limit.js';
+import { requireAuth } from '../../middleware/auth.middleware.js';
+import { validateLoginRequest, validateRegisterRequest } from './validation/auth.validation.js';
+import { loginController, meController, registerController } from './controller/auth.controller.js';
+const authRouter = Router();
+authRouter.post('/register', limitAuthAttempts, validateRegisterRequest, registerController);
+authRouter.post('/login', limitAuthAttempts, validateLoginRequest, loginController);
+authRouter.get('/me', requireAuth, meController);
+export default authRouter;

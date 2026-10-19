@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root, :root[data-theme='dark'] {
+  color-scheme:dark;
+  --bg-sidebar:#171717;--bg-main:#212121;--bg-input:#303030;--bg-hover:#303030;
+  --bg-user:#303030;--text-primary:#f4f4f5;--text-secondary:#b1b1b7;
+  --text-faint:#85858a;--border-color:#ffffff18;--accent-color:#b5ddd1;
+  --submit-bg:#f4f4f5;--submit-fg:#171717;--code-bg:#151515;--error-bg:#4a2526;
+}
+:root[data-theme='light']{
+  color-scheme:light;
+  --bg-sidebar:#f7f7f7;--bg-main:#fff;--bg-input:#f4f4f4;--bg-hover:#ededed;
+  --bg-user:#f3f3f3;--text-primary:#222;--text-secondary:#62636a;
+  --text-faint:#898989;--border-color:#00000017;--accent-color:#24765f;
+  --submit-bg:#202020;--submit-fg:#fff;--code-bg:#171717;--error-bg:#fbe9e9;
+}
+*{box-sizing:border-box} html,body,#root{height:100%;width:100%;margin:0}
+body{background:var(--bg-main);color:var(--text-primary);font:14px Inter,system-ui,-apple-system,sans-serif}
+button,input,textarea{font:inherit} button{cursor:pointer} button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent-color);outline-offset:2px}
+.app{display:flex;min-height:100dvh;height:100dvh;width:100%;overflow:hidden}
+.chat{position:relative;display:flex;flex:1;flex-direction:column;min-width:0;background:var(--bg-main)}
+.notice{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--bg-input);color:var(--text-primary);padding:13px 18px;border-radius:12px;width:min(900px,calc(100% - 32px));align-self:center;margin:12px auto 0;font-size:13px;line-height:1.55;z-index:3}
+.noticeError{background:var(--error-bg)}.notice button{background:none;color:inherit;border:0;font-size:23px}
+.disclaimer{margin:5px 10px 12px;text-align:center;color:var(--text-faint);font-size:11px}
+.sidebarScrim{display:none}
+@media(max-width:800px){.sidebarScrim{display:block;position:fixed;inset:0;background:#000a;z-index:19;border:0;width:100%}.disclaimer{font-size:10px}}
+
+.authLoading{height:100dvh;display:grid;place-items:center;color:var(--text-secondary)}
+
+/* API-backed Images / Apps / Deep Research views; keep original chat layout untouched. */
+:root {--bg-raised:var(--bg-input);--danger-color:#ef7777;}
+.featureContent{display:flex;flex:1;min-height:0;overflow:hidden;flex-direction:column}
+.featureContent > div{width:100%}
+@media(max-width:800px){.featureContent{min-width:0}}

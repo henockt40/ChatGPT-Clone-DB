@@ -1,0 +1,30 @@
+.message { display:flex; align-items:flex-start; gap:13px; width:100%; scroll-margin-top:22px; }
+.user { justify-content:flex-end; }
+.body { min-width:0; max-width:100%; }
+.user .body { max-width:min(82%,600px); }
+.assistant .body { flex:1; padding-top:5px; }
+.userBubble { background:var(--bg-user); padding:12px 18px; border-radius:20px; line-height:1.7; font-size:14px; white-space:pre-wrap; overflow-wrap:anywhere; }
+.aiBadge { display:grid; place-items:center; border:1px solid var(--border-color); border-radius:50%; flex-shrink:0; width:31px; height:31px; }
+.actions { opacity:0; margin-top:6px; display:flex; justify-content:flex-start; transition:opacity .18s; }
+.user .actions { justify-content:flex-end; }
+.message:hover .actions,.message:focus-within .actions { opacity:1; }
+.copyBtn { background:none; border:0; display:inline-flex; align-items:center; gap:5px; padding:5px; border-radius:7px; color:var(--text-secondary); font-size:11px; }
+.copyBtn:hover { color:var(--text-primary); background:var(--bg-hover); }
+.markdownBody { color:var(--text-primary); font-size:14px; line-height:1.8; overflow-wrap:anywhere; }
+.markdownBody p { margin:0 0 15px; }
+.markdownBody p:last-child { margin-bottom:0; }
+.markdownBody h1,.markdownBody h2,.markdownBody h3 { font-weight:650; line-height:1.35; margin:18px 0 10px; }
+.markdownBody h1 { font-size:23px; } .markdownBody h2 { font-size:19px; } .markdownBody h3 { font-size:16px; }
+.markdownBody ul,.markdownBody ol { padding-left:24px; margin:8px 0 16px; }
+.markdownBody li { margin:5px 0; }
+.markdownBody li p { display:inline; }
+.markdownBody a { color:var(--accent-color); }
+.markdownBody blockquote { border-left:3px solid var(--text-faint); padding-left:13px; margin:12px 0; color:var(--text-secondary); }
+.markdownBody table { border-collapse:collapse; width:100%; margin:13px 0; display:block; overflow-x:auto; }
+.markdownBody td,.markdownBody th { border:1px solid var(--border-color); padding:8px; }
+.markdownBody .inlineCode { font-family:ui-monospace,Consolas,monospace; font-size:.9em; background:var(--bg-input); border-radius:5px; padding:2px 5px; }
+.codeShell { margin:12px 0 18px; overflow:hidden; border-radius:12px; background:#171717; }
+.codeHeader { background:#2e2e2e; padding:8px 13px; display:flex; justify-content:space-between; align-items:center; color:#ccc; font-size:12px; }
+.codeHeader .copyBtn { color:#ccc; }
+.codeShell pre { overflow:auto; }
+@media(max-width:740px) { .user .body { max-width:91%; } .userBubble,.markdownBody { font-size:13px; } .actions { opacity:1; } .aiBadge { width:27px; height:27px; } }

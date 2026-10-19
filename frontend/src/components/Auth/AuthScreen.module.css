@@ -1,0 +1,98 @@
+/* Scoped ChatGPT-inspired login styling; does not change the working chat UI. */
+.page {
+  --auth-background: #ffffff;
+  --auth-text: #171717;
+  --auth-muted: #62666c;
+  --auth-border: #c5c7c9;
+  --auth-brand: #0d8f71;
+  --auth-control: #f9fafb;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--auth-background);
+  color: var(--auth-text);
+  color-scheme: light;
+}
+.topbar {
+  padding: 28px clamp(22px,4vw,52px);
+  display: flex;
+  align-items: center;
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 730; letter-spacing: -0.65px; }
+.brandLight { font-weight: 470; }
+.brandIcon {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  background: #151515; color: #fff; border-radius: 12px;
+}
+.main { flex: 1; display: flex; justify-content: center; align-items: center; padding: 18px 20px 36px; }
+.formPanel { width: min(100%, 400px); padding: 18px 2px; }
+.mobileLogo { display: none; }
+.formPanel h1 {
+  margin: 0;
+  font-size: clamp(31px, 3.2vw, 36px);
+  font-weight: 690;
+  letter-spacing: -1.35px;
+  line-height: 1.2;
+  text-align: center;
+}
+.description { margin: 15px auto 32px; max-width: 340px; text-align: center; font-size: 14px; line-height: 1.65; color: var(--auth-muted); }
+.form { display: flex; flex-direction: column; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 9px; }
+.field label { font-size: 13px; font-weight: 620; line-height: 1.25; }
+.field input {
+  display: block; width: 100%; min-width: 0; height: 54px;
+  border: 1px solid var(--auth-border); border-radius: 13px;
+  background: var(--auth-background); color: var(--auth-text);
+  padding: 0 16px; font-size: 15px; line-height: 1;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+.field input::placeholder { color: #83878c; opacity: 1; }
+.field input:hover:not(:disabled) { border-color: #94989b; }
+.field input:focus { outline: none; border-color: var(--auth-brand); box-shadow: 0 0 0 3px rgb(13 143 113 / 14%); }
+.field input:disabled { opacity: .67; cursor: not-allowed; }
+.passwordBox { position: relative; }
+.passwordBox input { padding-right: 54px; }
+.visibilityButton {
+  position: absolute; top: 50%; transform: translateY(-50%); right: 9px;
+  width: 38px; height: 38px; display: grid; place-items: center;
+  border: none; background: transparent; color: #73777b; border-radius: 9px;
+}
+.visibilityButton:hover { background: #f1f2f2; color: #1b1b1b; }
+.visibilityButton:focus-visible, .modeSwitch button:focus-visible { outline: 2px solid var(--auth-brand); outline-offset: 2px; }
+.error { margin: -3px 0 0; color: #9f2525; background: #fff0ef; border: 1px solid #f8d2ce; border-radius: 11px; padding: 11px 13px; font-size: 13px; line-height: 1.5; }
+.submit {
+  width: 100%; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px;
+  border: none; border-radius: 999px; background: #171717; color: white; font-weight: 650;
+  font-size: 15px; margin-top: 4px; transition: background 150ms ease, transform 150ms ease;
+}
+.submit:hover:not(:disabled) { background: #333; }
+.submit:active:not(:disabled) { transform: translateY(1px); }
+.submit:disabled { opacity: .62; cursor: wait; }
+.spinner { animation: authSpin 850ms linear infinite; }
+@keyframes authSpin { to { transform: rotate(360deg); } }
+.modeSwitch { margin: 25px 0 0; text-align: center; font-size: 14px; color: var(--auth-text); }
+.modeSwitch button { color: var(--auth-brand); font-weight: 650; border: 0; background: transparent; padding: 4px 3px; }
+.modeSwitch button:hover:not(:disabled) { text-decoration: underline; }
+.modeSwitch button:disabled { opacity: .5; cursor: wait; }
+.privacyNote {
+  margin-top: 29px; padding-top: 24px; display: flex; gap: 8px; align-items: flex-start;
+  justify-content: center; color: var(--auth-muted); font-size: 12px; line-height: 1.5;
+  border-top: 1px solid #ededed; text-align: center;
+}
+.privacyNote svg { flex: none; margin-top: 1px; }
+.footer { padding: 14px 20px 28px; color: #888c90; font-size: 11px; text-align: center; line-height: 1.6; }
+@media (max-width: 600px) {
+  .topbar { padding: 18px 20px; }
+  .brand { font-size: 16px; }
+  .brandIcon { width: 33px; height: 33px; }
+  .main { align-items: center; padding: 14px 25px 24px; }
+  .formPanel { max-width: 390px; padding: 0; }
+  .formPanel h1 { font-size: 31px; }
+  .description { margin-bottom: 27px; }
+  .field input { height: 52px; font-size: 16px; }
+  .form { gap: 16px; }
+  .privacyNote { margin-top: 24px; }
+  .footer { padding: 15px 12px 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } .field input, .submit { transition: none; } }
